@@ -1,42 +1,25 @@
-//document.getElementById('ok').addEventListener('click',function (e) {
-//    document.getElementById('no').classList.add('toggleOn')
-//    console.log(document.getElementById('no'))
-//})
 
+var marginBtn = 10
 document.getElementById('ok').addEventListener('click', function (e) {
-    let noElement = document.getElementById('no')
-    if (noElement.classList.contains('toggleOn')) {
-        noElement.classList.replace('toggleOn','toggleOff')
-    }
-    else if (noElement.classList.contains('toggleOff')) {
-        noElement.classList.replace('toggleOff','toggleOn')
-
-    }
-    else {
-        noElement.classList.add('toggleOn')
-    }
+    marginBtn = marginBtn+10
+    document.getElementById('cancel').style.marginLeft = `${marginBtn}px `
+    document.getElementById('cancel').style.marginRight = `${marginBtn}px `
+    document.getElementById('no').style.marginLeft = `${marginBtn}px`
+    document.getElementById('no').style.marginRight = `${marginBtn}px`
 })
 
-var borderTick = 2
-document.getElementById('cancel').style.border = `${borderTick}px solid white`
+var text = ['ok','วิชานี้','ง่าย','จริงๆนะ']
+var count = 0
+var changeText = document.getElementById('no')
+changeText.addEventListener('dblclick', function (e) {
+    if (count > 3) {
+        count = 0
+    }
+    document.getElementById('ok').innerHTML = text[count]
+    count++
 
-var cancelElement = document.getElementById('cancel')
-cancelElement.addEventListener('mouseover', function (e) {
-    cancelElement.innerHTML = `
-        <div class="container-col">
-            <div class="flex-item">
-                no 1
-            </div>
-            <div class="flex-item">
-                no 2
-            </div>
-        </div>
-        `
-})
+    
+    
 
-//ยกเลิกเมื่อเอาเม้าออก
-cancelElement.addEventListener('mouseleave', function (e) {
-    cancelElement.innerHTML = `
-        cancle
-        `
+    
 })
